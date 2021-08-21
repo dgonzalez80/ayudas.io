@@ -1,0 +1,18 @@
+name: " "
+output_dir: "."
+navbar:
+  title: "Ayudas varias"
+  left:
+    - text: "Help"
+      icon: fa-home
+      href: index.html
+    - text: "RStudio"
+      menu:
+         - text: "Paquete1"
+           href: paquete1.html
+         - text: "Paquete2"
+           href: paquete2.html  
+output:
+  html_document:
+    theme: cosmos
+    css: style.css
