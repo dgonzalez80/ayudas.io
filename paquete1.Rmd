@@ -1,5 +1,5 @@
 ---
-title: "**Paquete1**"
+title: "**GitHub**"
 author: "dgonzalez"
 subtitle: "**Rstudio**" 
 output:
@@ -14,22 +14,89 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## R Markdown
+# **Configuración**
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+Para configurar Git y GitHub para su utulización debemos seguir los siguientes pasos
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+## Paso 1
 
-```{r cars}
-summary(cars)
-```
+Instalar git en nuestro computador ( para linux git ya está instalado)
 
-## Including Plots
+## Paso 2
 
-You can also embed plots, for example:
+Configurar git en nuestro computador, para ello abrimos la terminal
 
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
+~~~
+$ git config user.name "Nombre Apellido"
+$ git config user.email "usuario@gmail.com"
+~~~
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+## Paso 3
+
+Se verifica que tengamos activas las claves ssh
+~~~
+$ ls -al ~/.ssh
+~~~
+
+## Paso 4
+
+Se actualiza el computador
+~~~
+$ sudo apt-get update
+~~~
+
+## Paso 5
+
+Se debe copiar nuestra clave pública SSH en  GitHub , para lo cual abrimos el portal :
+
+Setting / SSH and GPG keys
+New SSH key
+
+Adicionamos un nombre a la clave
+Copiamos en el espacio la clave SSH que se generó en pc
+
+## Paso 6
+
+El siguiente procedimiento muestra el codigo Agent pid para ser adicionado
+
+~~~
+$ eval "$(ssh-agent -s)
+Agent pid 12345
+~~~
+
+## Paso 7
+
+Finalmente se adiciona este id 
+
+~~~
+$ ssh-add -K /home/@@@/.shh/id_rsa
+Enter PIN for authenticador : 1234
+~~~
+
+LISTO para clonar y hacer commit y push
+
+# **Clonar repositorio** 
+
+Para clonar un repositorio se copia desde GitHub la URL SSH (git@github.com:dgonzalez80/ayudas.io.git) y se adiciona a la orden *git clone*
+
+~~~
+$ git clone git@github.com:dgonzalez80/ayudas.io.git
+~~~
+
+# **Actualizar repositorio**
+
+Para actualizar un repositorio se corre el siguiente código
+
+~~~
+$ git add .
+$ git commit -m "mensaje sobre cambios"
+$ git push
+~~~
+
+
+
+
+
+
+
+

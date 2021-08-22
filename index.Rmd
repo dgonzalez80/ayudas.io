@@ -14,5 +14,9 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## En construcción
+## **GitHub**
+
+## **summarytools**
+
+## **tidyverse**
 

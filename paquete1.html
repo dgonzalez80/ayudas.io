@@ -12,7 +12,7 @@
 <meta name="author" content="dgonzalez" />
 
 
-<title>Paquete1</title>
+<title>GitHub</title>
 
 <script src="site_libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
@@ -355,31 +355,65 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore"><strong>Paquete1</strong></h1>
+<h1 class="title toc-ignore"><strong>GitHub</strong></h1>
 <h3 class="subtitle"><strong>Rstudio</strong></h3>
 <h4 class="author">dgonzalez</h4>
 
 </div>
 
 
-<div id="r-markdown" class="section level2">
-<h2>R Markdown</h2>
-<p>This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <a href="http://rmarkdown.rstudio.com" class="uri">http://rmarkdown.rstudio.com</a>.</p>
-<p>When you click the <strong>Knit</strong> button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:</p>
-<pre class="r"><code>summary(cars)</code></pre>
-<pre><code>##      speed           dist       
-##  Min.   : 4.0   Min.   :  2.00  
-##  1st Qu.:12.0   1st Qu.: 26.00  
-##  Median :15.0   Median : 36.00  
-##  Mean   :15.4   Mean   : 42.98  
-##  3rd Qu.:19.0   3rd Qu.: 56.00  
-##  Max.   :25.0   Max.   :120.00</code></pre>
+<div id="configuración" class="section level1">
+<h1><strong>Configuración</strong></h1>
+<p>Para configurar Git y GitHub para su utulización debemos seguir los siguientes pasos</p>
+<div id="paso-1" class="section level2">
+<h2>Paso 1</h2>
+<p>Instalar git en nuestro computador ( para linux git ya está instalado)</p>
 </div>
-<div id="including-plots" class="section level2">
-<h2>Including Plots</h2>
-<p>You can also embed plots, for example:</p>
-<p><img src="paquete1_files/figure-html/pressure-1.png" width="672" /></p>
-<p>Note that the <code>echo = FALSE</code> parameter was added to the code chunk to prevent printing of the R code that generated the plot.</p>
+<div id="paso-2" class="section level2">
+<h2>Paso 2</h2>
+<p>Configurar git en nuestro computador, para ello abrimos la terminal</p>
+<pre><code>$ git config user.name &quot;Nombre Apellido&quot;
+$ git config user.email &quot;usuario@gmail.com&quot;</code></pre>
+</div>
+<div id="paso-3" class="section level2">
+<h2>Paso 3</h2>
+<p>Se verifica que tengamos activas las claves ssh ~~~ $ ls -al ~/.ssh ~~~</p>
+</div>
+<div id="paso-4" class="section level2">
+<h2>Paso 4</h2>
+<p>Se actualiza el computador ~~~ $ sudo apt-get update ~~~</p>
+</div>
+<div id="paso-5" class="section level2">
+<h2>Paso 5</h2>
+<p>Se debe copiar nuestra clave pública SSH en GitHub , para lo cual abrimos el portal :</p>
+<p>Setting / SSH and GPG keys New SSH key</p>
+<p>Adicionamos un nombre a la clave Copiamos en el espacio la clave SSH que se generó en pc</p>
+</div>
+<div id="paso-6" class="section level2">
+<h2>Paso 6</h2>
+<p>El siguiente procedimiento muestra el codigo Agent pid para ser adicionado</p>
+<pre><code>$ eval &quot;$(ssh-agent -s)
+Agent pid 12345</code></pre>
+</div>
+<div id="paso-7" class="section level2">
+<h2>Paso 7</h2>
+<p>Finalmente se adiciona este id</p>
+<pre><code>$ ssh-add -K /home/@@@/.shh/id_rsa
+Enter PIN for authenticador : 1234</code></pre>
+<p>LISTO para clonar y hacer commit y push</p>
+</div>
+</div>
+<div id="clonar-repositorio" class="section level1">
+<h1><strong>Clonar repositorio</strong></h1>
+<p>Para clonar un repositorio se copia desde GitHub la URL SSH (<a href="mailto:git@github.com" class="email">git@github.com</a>:dgonzalez80/ayudas.io.git) y se adiciona a la orden <em>git clone</em></p>
+<pre><code>$ git clone git@github.com:dgonzalez80/ayudas.io.git</code></pre>
+</div>
+<div id="actualizar-repositorio" class="section level1">
+<h1><strong>Actualizar repositorio</strong></h1>
+<p>Para actualizar un repositorio se corre el siguiente código</p>
+<pre><code>$ git add .
+$ git commit -m &quot;mensaje sobre cambios&quot;
+$ git push</code></pre>
 </div>
 
 
